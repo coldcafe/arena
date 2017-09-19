@@ -8,7 +8,7 @@ router.post('/login', login);
 
 router.use(function(req, res, next){
     if (!req.cookies.sm_token) {
-        res.redirect('/login');
+        res.redirect(req.app.locals.basePath + '/login');
         return;
     }
     let result = jwt.verify(req.cookies.sm_token, 'ZG91cGFpNjY2');
