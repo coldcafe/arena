@@ -3,6 +3,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const handlebars = require('handlebars');
 const exphbs = require('express-handlebars');
+const cookieParser = require('cookie-parser');
+const cors = require('express-cors')
 
 module.exports = function() {
   const hbs = exphbs.create({
@@ -30,7 +32,12 @@ module.exports = function() {
   app.engine('hbs', hbs.engine);
 
   app.use(bodyParser.json());
-
+  app.use(cookieParser());
+  app.use(cors({
+    allowedOrigins: [
+      'localhost:3001'
+    ]
+  }))
   return {
     app,
     Queues: app.locals.Queues

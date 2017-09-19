@@ -8,10 +8,13 @@
     "bee-queue": "^1.0.0",
     "body-parser": "^1.17.2",
     "bull": "^3.0.0-rc.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.15.2",
+    "express-cors": "0.0.3",
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.10",
     "handlebars-helpers": "^0.8.2",
+    "jsonwebtoken": "^8.0.1",
     "lodash": "^4.17.4",
     "nodemon": "^1.11.0"
   },
