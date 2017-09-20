@@ -8,6 +8,9 @@ function run(config, listenOpts = {}) {
 
   if (config) Queues.setConfig(config);
 
+  if(config.admins && config.admins.constructor === Array){
+    app.locals.admins = config.admins;
+  }
   app.locals.basePath = listenOpts.basePath || app.locals.basePath;
 
   app.use(app.locals.basePath, express.static(path.join(__dirname, 'public')));

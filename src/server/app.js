@@ -33,11 +33,6 @@ module.exports = function() {
 
   app.use(bodyParser.json());
   app.use(cookieParser());
-  app.use(cors({
-    allowedOrigins: [
-      'localhost:3001'
-    ]
-  }))
   return {
     app,
     Queues: app.locals.Queues
