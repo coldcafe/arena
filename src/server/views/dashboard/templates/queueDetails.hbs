@@ -1,16 +1,17 @@
 <h2>Queue <code>{{ queueHost }}/{{ queueName }}</code></h2>
 
-<h3>Job Types</h3>
+<h3>Job Types <a class="btn btn-primary btn-xs" data-toggle="modal" data-target="#addJobModal">+</a></h3>
+
 <div class="row">
   <div class="col-sm-4 no-padding">
     <ul class="list-group">
       {{#each jobCounts}}
-        <li class="list-group-item">
-          <span class="badge">{{ this }}</span>
-          <a href="{{ ../basePath }}/{{ encodeURI ../queueHost }}/{{ encodeURI ../queueName }}/{{ @key }}">
+      <li class="list-group-item">
+        <span class="badge">{{ this }}</span>
+        <a href="{{ ../basePath }}/{{ encodeURI ../queueHost }}/{{ encodeURI ../queueName }}/{{ @key }}">
             <span class="text-capitalize">{{ @key }}</span>
           </a>
-        </li>
+      </li>
       {{/each}}
     </ul>
   </div>
@@ -21,16 +22,34 @@
   <div class="col-sm-4 no-padding">
     <table class="table">
       {{#each stats}}
-        <tr>
-          <th>{{ @key }}</th>
-          <th>{{ this }}</th>
-        </tr>
+      <tr>
+        <th>{{ @key }}</th>
+        <th>{{ this }}</th>
+      </tr>
       {{/each}}
     </table>
   </div>
 </div>
 
 {{#contentFor 'sidebar'}}
-  <li><a href="{{ basePath }}/">Queues Overview</a></li>
-  <li class="active"><a href="#">Queue <code>{{ queueHost }}/{{ queueName }}</code></a></li>
+<li><a href="{{ basePath }}/">Queues Overview</a></li>
+<li class="active"><a href="#">Queue <code>{{ queueHost }}/{{ queueName }}</code></a></li>
 {{/contentFor}}
+
+<div class="modal fade" id="addJobModal" tabindex="-1" role="dialog" aria-labelledby="addJobModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="addJobModalLabel">create new job</h4>
+      </div>
+      <div class="modal-body">
+        <textarea class="js-add-job-data" rows="10" cols="77"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+        <button type="button" data-action="add" data-queue-name="{{ queueName }}" data-queue-host="{{ queueHost }}" class="btn btn-primary js-add-job">submit</button>
+      </div>
+    </div>
+  </div>
+</div>

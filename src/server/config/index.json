@@ -7,5 +7,5 @@
       "hostId": "AWS Server 2"
     }
   ],
-  "queues": []
+  "queues": [{"name":"video_add_watermark","port":"6380","host":"localhost","hostId":"redis://localhost:6380"},{"name":"generate_rank_cache","port":"6379","host":"localhost","hostId":"redis://localhost:6379"},{"name":"refresh_activity_cache","port":"6380","host":"localhost","hostId":"redis://localhost:6380"}]
 }
