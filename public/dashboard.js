@@ -69,8 +69,9 @@ $(document).ready(() => {
     try {
       data = JSON.parse(data);
     } catch (error) {
-      return alert('not json string');
+      alert('not json string');
       $(this).prop('disabled', false);
+      return;
     }
     $.ajax({
       method: 'POST',
